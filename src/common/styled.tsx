@@ -10,7 +10,7 @@ import { Theme } from "./theme-types";
 
 const wrapper: StyletronWrapper = (StyledComponent) =>
   function withThemeHOC(props: PropsWithChildren<any>): JSX.Element {
-    return <>{($theme) => <StyledComponent {...props} $theme={$theme} />}</>;
+    return <>{($theme: any) => <StyledComponent {...props} $theme={$theme} />}</>;
   };
 
 export interface StyledFn {

@@ -4,8 +4,8 @@ import { normalizeTokenValue } from "@/shared/common/normalize-token-value";
 import { TickingTs } from "@/shared/explorer-components/ticking-ts";
 import { useChainConfig } from "@/shared/common/use-chain-config";
 import { assetURL } from "@/shared/common/asset-url";
-import { Status } from "../../../__generated__/globalTypes";
 import Link from "next/link";
+import {Status} from "@/shared/__generated__/globalTypes";
 
 type AdrTx = {
   id: string;

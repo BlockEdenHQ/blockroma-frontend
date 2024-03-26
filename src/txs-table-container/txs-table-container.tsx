@@ -61,6 +61,8 @@ const TableWithPagination = () => {
   const [curPage, setCurPage] = useState(initialPage);
   const pageSize = 20;
 
+  const { t } = useTranslation("common");
+
   const setCurPageWithSideEffect = async (p: number) => {
     setCurPage(p);
     await router.push({ search: `?page=${p}` });

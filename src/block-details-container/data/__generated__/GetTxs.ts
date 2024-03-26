@@ -3,11 +3,12 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { Status } from "./../../../../../__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: GetTxs
 // ====================================================
+
+import {Status} from "@/shared/__generated__/globalTypes";
 
 export interface GetTxs_transactions_pageInfo {
   hasNextPage: boolean | null;

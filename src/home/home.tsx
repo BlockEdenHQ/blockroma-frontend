@@ -1,5 +1,4 @@
 import React from "react";
-import { actionSetTheme } from "@/shared/common/base-reducer";
 import { connect } from "react-redux";
 import { AdContainer } from "@/shared/home/components/ad-container";
 import { HomeTransactionsContainer } from "@/shared/home/home-transactions-container";
@@ -10,11 +9,6 @@ export const Home = connect(
   (state: { base: { themeCode: "dark" | "light" } }) => ({
     themeCode: state.base.themeCode,
   }),
-  (dispatch) => ({
-    actionSetTheme: (themeCode: "dark" | "light") => {
-      dispatch(actionSetTheme(themeCode));
-    },
-  })
 )((): JSX.Element => {
   return (
     <div>

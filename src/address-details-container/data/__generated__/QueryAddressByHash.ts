@@ -3,11 +3,11 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { Status } from "./../../../../../__generated__/globalTypes";
-
 // ====================================================
 // GraphQL query operation: QueryAddressByHash
 // ====================================================
+
+import {Status} from "@/shared/__generated__/globalTypes";
 
 export interface QueryAddressByHash_address_transactions_pageInfo {
   hasNextPage: boolean | null;

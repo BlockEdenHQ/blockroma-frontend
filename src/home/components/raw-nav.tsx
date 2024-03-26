@@ -63,7 +63,7 @@ function DesktopSearch({ searchVal }: { searchVal: string }): JSX.Element {
       <div
         className="input-group"
         style={{ width: "100%" }}
-        title={t("nav.search")}
+        title={t("nav.search") as string}
       >
         <div
           className={`form-control search-control me auto mobile-search-hide${fieldLabel}`}
@@ -86,7 +86,7 @@ function DesktopSearch({ searchVal }: { searchVal: string }): JSX.Element {
               tabIndex={1}
               aria-controls="autoComplete_list_1"
               aria-autocomplete="both"
-              placeholder={t("nav.search")}
+              placeholder={t("nav.search") as string}
             />
             <ul id="autoComplete_list_1" role="listbox" hidden />
           </div>
@@ -179,7 +179,7 @@ function MobileSearch({ searchVal }: { searchVal: string }): JSX.Element {
       <div
         className="input-group"
         style={{ width: "100%" }}
-        title={t("nav.search")}
+        title={t("nav.search") as string}
       >
         <div
           className={`form-control search-control me auto mobile-search-show${fieldLabel}`}
@@ -202,7 +202,7 @@ function MobileSearch({ searchVal }: { searchVal: string }): JSX.Element {
               tabIndex={1}
               aria-controls="autoComplete_list_2"
               aria-autocomplete="both"
-              placeholder={t("nav.search")}
+              placeholder={t("nav.search") as string}
             />
             <ul id="autoComplete_list_2" role="listbox" hidden />
           </div>

@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 export function BlockDetailsContainer(): JSX.Element {
   const { t } = useTranslation("common");
   const params = useRouter();
-  const blockNumber = parseInt(params.query.blockNumber, 10);
+  const blockNumber = parseInt(params.query.blockNumber as string || "0", 10);
   const { data, loading, error } = useQueryBlock(blockNumber);
   if (loading) {
     // TODO(dora)
@@ -132,7 +132,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.block_height.tip")}
+                        title={t("bk.block_height.tip") ?? ""}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -154,7 +154,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.timestamp.tip")}
+                        title={t("bk.timestamp.tip") ?? ""}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -177,7 +177,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.txs.tip")}
+                        title={t("bk.txs.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -201,7 +201,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.validator.tip")}
+                        title={t("bk.validator.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -231,7 +231,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.size.tip")}
+                        title={t("bk.size.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -250,7 +250,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.hash.tip")}
+                        title={t("bk.hash.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -275,7 +275,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.parent_hash.tip")}
+                        title={t("bk.parent_hash.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -309,7 +309,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.difficulty.tip")}
+                        title={t("bk.difficulty.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -328,7 +328,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.total_difficulty.tip")}
+                        title={t("bk.total_difficulty.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -347,7 +347,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.gas_used.tip")}
+                        title={t("bk.gas_used.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -366,7 +366,7 @@ export function BlockDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("bk.gas_limit.tip")}
+                        title={t("bk.gas_limit.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>

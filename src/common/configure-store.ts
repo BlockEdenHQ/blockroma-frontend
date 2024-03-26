@@ -24,7 +24,9 @@ export function configureStore(
 
   const enhancers = [applyMiddleware(...middleware)];
 
-  if (typeof window !== "undefined" && window && window.__REDUX_DEVTOOLS_EXTENSION__) {
+  if (typeof window !== "undefined" && window &&
+    // @ts-ignore
+    window.__REDUX_DEVTOOLS_EXTENSION__) {
     // @ts-ignore
     enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
   }

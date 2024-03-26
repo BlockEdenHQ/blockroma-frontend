@@ -100,9 +100,9 @@ export const TokensContainer = () => {
                     <li className="page-item">
                       <a
                         className="page-link"
-                        href="#"
                         data-next-page-button=""
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.preventDefault();
                           return tokensFetchMore(
                             tokensData?.tokens?.pageInfo?.endCursor,
                             symbol

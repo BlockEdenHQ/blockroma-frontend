@@ -61,6 +61,7 @@ const TableWithPagination = () => {
   const initialPage = Number(search.page) || 1;
   const [curPage, setCurPage] = useState(initialPage);
   const pageSize = 20;
+  const { t } = useTranslation("common");
 
   const setCurPageWithSideEffect = (p: number) => {
     setCurPage(p);

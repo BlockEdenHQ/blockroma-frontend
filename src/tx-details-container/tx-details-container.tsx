@@ -27,7 +27,7 @@ export function TxDetailsContainer(): JSX.Element {
       .toFixed(20)
       .replace(/\.?0*$/, "");
   }
-  const { data, loading, error, refetch } = useQueryTx({ hash: params.txHash });
+  const { data, loading, error, refetch } = useQueryTx({ hash: params.txHash as string });
   if (loading) {
     // TODO(dora):
     return <></>;
@@ -85,7 +85,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.tx_hash.tip")}
+                        title={t("tx.tx_hash.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -117,7 +117,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.result.tip")}
+                        title={t("tx.result.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -136,7 +136,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.status.tip")}
+                        title={t("tx.status.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -171,7 +171,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.block.tip")}
+                        title={t("tx.block.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -198,7 +198,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.timestamp.tip")}
+                        title={t("tx.timestamp.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -229,7 +229,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.from.tip")}
+                        title={t("tx.from.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -255,7 +255,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.to.tip")}
+                        title={t("tx.to.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -281,7 +281,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.value.tip")}
+                        title={t("tx.value.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -313,7 +313,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.fee.tip")}
+                        title={t("tx.fee.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -344,7 +344,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.gas_price.tip")}
+                        title={t("tx.gas_price.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -364,7 +364,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.tx_type.tip")}
+                        title={t("tx.tx_type.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -382,7 +382,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.gas_limit.tip")}
+                        title={t("tx.gas_limit.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
@@ -402,7 +402,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.max_fee_per_gas.tip")}
+                        title={t("tx.max_fee_per_gas.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle"></i>{" "}
                       </span>
@@ -465,7 +465,7 @@ export function TxDetailsContainer(): JSX.Element {
                         data-html="true"
                         data-placement="top"
                         data-toggle="tooltip"
-                        title={t("tx.nonce.tip")}
+                        title={t("tx.nonce.tip") as string}
                       >
                         <i className="fa-solid fa-info-circle" />{" "}
                       </span>
