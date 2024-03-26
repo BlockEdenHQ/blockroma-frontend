@@ -3,7 +3,8 @@ import { shortenHash } from "@/shared/common/shorten-hash";
 import { TickingTs } from "@/shared/explorer-components/ticking-ts";
 
 import { assetURL } from "@/shared/common/asset-url";
-import {useTranslation} from "next-i18next";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export type Blk = {
   consensus: boolean | null;
@@ -26,7 +27,7 @@ type Props = {
 };
 
 export function BlkTile({ blk }: Props): JSX.Element {
-  const {t} = useTranslation("common");
+  const { t } = useTranslation("common");
   if (!blk) {
     return <></>;
   }
@@ -37,13 +38,13 @@ export function BlkTile({ blk }: Props): JSX.Element {
       data-block-number={blk.number}
     >
       <div className="tile tile-type-block n-p d-flex flex-column">
-        <a
+        <Link
           className="tile-title"
           data-selector="block-number"
           href={assetURL(`block/${blk.number}`)}
         >
           {blk.number}
-        </a>
+        </Link>
         <div className="tile-bottom-contents">
           <div className="tile-transactions">
             <span className="mr-2">
@@ -53,7 +54,7 @@ export function BlkTile({ blk }: Props): JSX.Element {
           </div>
           <div className="text-truncate">
             Validator{" "}
-            <a
+            <Link
               data-test="address_hash_link"
               href={assetURL(`address/${blk.miner}`)}
             >
@@ -70,7 +71,7 @@ export function BlkTile({ blk }: Props): JSX.Element {
                   <span>{shortenHash(blk.miner)}</span>
                 </span>
               </span>
-            </a>
+            </Link>
           </div>
           {/*
           TODO(dora) reward

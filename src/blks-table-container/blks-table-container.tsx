@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { useQueryBlocks } from "@/shared/blks-table-container/hooks/use-query-blocks";
 import { BlkList } from "@/shared/explorer-components/blk-list";
 import { Pagination } from "@/shared/explorer-components/pagination";
-import { useHistory } from "react-router-dom";
-import { useLocation } from "onefx/lib/react-router";
 
 import { paginationProcessTotalNumPage } from "@/shared/common/functions/paginations";
-import {useTranslation} from "next-i18next";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export const BlksTableContainer: React.FC = () => {
-  const {t} = useTranslation("common");
+  const { t } = useTranslation("common");
   return (
     <main className="js-ad-dependant-pt pt-5">
       <p className="alert alert-info" role="alert" />
@@ -57,16 +56,15 @@ export const BlksTableContainer: React.FC = () => {
 };
 
 const TableWithPagination = () => {
-  const location = useLocation();
-  const history = useHistory();
-  const search = new URLSearchParams(location.search);
-  const initialPage = Number(search.get("page")) || 1;
+  const router = useRouter();
+  const search = router.query;
+  const initialPage = Number(search.page) || 1;
   const [curPage, setCurPage] = useState(initialPage);
   const pageSize = 20;
 
   const setCurPageWithSideEffect = (p: number) => {
     setCurPage(p);
-    history.push({ search: `?page=${p}` });
+    router.push({ search: `?page=${p}` });
   };
   const { loading, data, error, refetch } = useQueryBlocks(
     { first: pageSize, after: (curPage - 1) * pageSize },

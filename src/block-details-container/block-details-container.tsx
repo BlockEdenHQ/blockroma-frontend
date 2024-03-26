@@ -1,20 +1,20 @@
 import * as React from "react";
 import { useQueryBlock } from "@/shared/block-details-container/hooks/use-query-block";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { getGasUsedPercent } from "@/shared/common/get-gas-used-percent";
 import { CopyToClipboard } from "@/shared/explorer-components/copy-to-clipboard";
 import { TickingTs } from "@/shared/explorer-components/ticking-ts";
 import format from "date-fns/format";
 
 import { assetURL } from "@/shared/common/asset-url";
 import { BlockTransactions } from "./block-transactions";
-import {useTranslation} from "next-i18next";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { getGasUsedPercent } from "../common/get-gas-used-percent";
+import { useRouter } from "next/router";
 
 export function BlockDetailsContainer(): JSX.Element {
-  const {t} = useTranslation("common");
-  const params = useParams<{ blockNumber: string }>();
-  const blockNumber = parseInt(params.blockNumber, 10);
+  const { t } = useTranslation("common");
+  const params = useRouter();
+  const blockNumber = parseInt(params.query.blockNumber, 10);
   const { data, loading, error } = useQueryBlock(blockNumber);
   if (loading) {
     // TODO(dora)
@@ -73,7 +73,7 @@ export function BlockDetailsContainer(): JSX.Element {
                       <li className="page-item">
                         <Link
                           className="page-link"
-                          to={`/block/${blockNumber - 1}`}
+                          href={`/block/${blockNumber - 1}`}
                           data-prev-page-button
                           data-placement="top"
                           data-toggle="tooltip"
@@ -103,7 +103,7 @@ export function BlockDetailsContainer(): JSX.Element {
                       <li className="page-item">
                         <Link
                           className="page-link"
-                          to={`/block/${blockNumber + 1}`}
+                          href={`/block/${blockNumber + 1}`}
                           data-next-page-button
                           data-placement="top"
                           data-toggle="tooltip"

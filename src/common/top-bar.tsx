@@ -43,7 +43,7 @@ const LogoWrapper = styled("a", {
 function Logo(): JSX.Element {
   return (
     <LogoWrapper href="/">
-      <Icon url={"https://tianpan.co/favicon.png"} />
+      <Icon url={"/favicon.svg"} />
     </LogoWrapper>
   );
 }

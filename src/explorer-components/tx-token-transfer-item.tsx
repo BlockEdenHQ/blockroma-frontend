@@ -1,5 +1,6 @@
 import React from "react";
 import { assetURL } from "@/shared/common/asset-url";
+import Link from "next/link";
 
 export const TxTokenTransferItem: React.FC = () => {
   const blockNumber = 123;
@@ -43,7 +44,7 @@ export const TxTokenTransferItem: React.FC = () => {
             </div>
           </span>
           <span>
-            <a
+            <Link
               data-test="address_hash_link"
               href="/poa/core/address/0x621c2a125ec4a6d8a7c7a655a18a2868d35eb43c"
             >
@@ -55,9 +56,9 @@ export const TxTokenTransferItem: React.FC = () => {
                   0x621c2a–5eb43c
                 </span>
               </span>
-            </a>
-            →
-            <a
+            </Link>{" "}
+            →{" "}
+            <Link
               data-test="address_hash_link"
               href="/poa/core/address/0xd789a607ceac2f0e14867de4eb15b15c9ffb5859"
             >
@@ -80,7 +81,7 @@ export const TxTokenTransferItem: React.FC = () => {
                   <span> (0xd789a6–fb5859)</span>
                 </span>
               </span>
-            </a>
+            </Link>
           </span>
           <span className="d-flex flex-md-row flex-column mt-3 mt-md-0">
             <span className="tile-title">0 BMO</span>
@@ -97,7 +98,7 @@ export const TxTokenTransferItem: React.FC = () => {
                 style={{ display: "inline-table" }}
               >
                 <span className="d-inline-block tile-type-token-transfer-short-name">
-                  <a
+                  <Link
                     data-test="address_hash_link"
                     href="/poa/core/address/0xd789a607ceac2f0e14867de4eb15b15c9ffb5859"
                   >
@@ -107,11 +108,11 @@ export const TxTokenTransferItem: React.FC = () => {
                     >
                       0xd789a6–fb5859
                     </span>
-                  </a>
-                </span>
-                →
+                  </Link>
+                </span>{" "}
+                →{" "}
                 <span className="d-inline-block tile-type-token-transfer-short-name">
-                  <a
+                  <Link
                     data-test="address_hash_link"
                     href="/poa/core/address/0x7d20a8d54f955b4483a66ab335635ab66e151c51"
                   >
@@ -121,7 +122,7 @@ export const TxTokenTransferItem: React.FC = () => {
                     >
                       0x7d20a8–151c51
                     </span>
-                  </a>
+                  </Link>
                 </span>
               </span>
               <span className="col-xs-12 col-lg-4 ml-3 ml-sm-0">
@@ -147,7 +148,7 @@ export const TxTokenTransferItem: React.FC = () => {
                   style={{ display: "inline-table" }}
                 >
                   <span className="d-inline-block tile-type-token-transfer-short-name">
-                    <a
+                    <Link
                       data-test="address_hash_link"
                       href="/poa/core/address/0xd789a607ceac2f0e14867de4eb15b15c9ffb5859"
                     >
@@ -157,11 +158,11 @@ export const TxTokenTransferItem: React.FC = () => {
                       >
                         0xd789a6–fb5859
                       </span>
-                    </a>
-                  </span>
-                  →
+                    </Link>
+                  </span>{" "}
+                  →{" "}
                   <span className="d-inline-block tile-type-token-transfer-short-name">
-                    <a
+                    <Link
                       data-test="address_hash_link"
                       href="/poa/core/address/0x3ae23695016bda778c24d62fb607b3d285eed4ae"
                     >
@@ -171,7 +172,7 @@ export const TxTokenTransferItem: React.FC = () => {
                       >
                         0x3ae236–eed4ae
                       </span>
-                    </a>
+                    </Link>
                   </span>
                 </span>
                 <span className="col-xs-12 col-lg-4 ml-3 ml-sm-0">
@@ -193,7 +194,7 @@ export const TxTokenTransferItem: React.FC = () => {
                   style={{ display: "inline-table" }}
                 >
                   <span className="d-inline-block tile-type-token-transfer-short-name">
-                    <a
+                    <Link
                       data-test="address_hash_link"
                       href="/poa/core/address/0xd789a607ceac2f0e14867de4eb15b15c9ffb5859"
                     >
@@ -203,11 +204,11 @@ export const TxTokenTransferItem: React.FC = () => {
                       >
                         0xd789a6–fb5859
                       </span>
-                    </a>
-                  </span>
-                  →
+                    </Link>
+                  </span>{" "}
+                  →{" "}
                   <span className="d-inline-block tile-type-token-transfer-short-name">
-                    <a
+                    <Link
                       data-test="address_hash_link"
                       href="/poa/core/address/0xa79b29ad7e0196c95b87f4663ded82fbf2e3add8"
                     >
@@ -217,7 +218,7 @@ export const TxTokenTransferItem: React.FC = () => {
                       >
                         0xa79b29–e3add8
                       </span>
-                    </a>
+                    </Link>
                   </span>
                 </span>
                 <span className="col-xs-12 col-lg-4 ml-3 ml-sm-0">
@@ -254,7 +255,9 @@ export const TxTokenTransferItem: React.FC = () => {
         {/* Block info */}
         <div className="col-md-3 col-lg-2 d-flex flex-row flex-md-column flex-nowrap justify-content-center text-md-right mt-3 mt-md-0 tile-bottom">
           <span className="mr-2 mr-md-0 order-1">
-            <a href={assetURL(`block/${blockNumber}`)}>Block #{blockNumber}</a>
+            <Link href={assetURL(`block/${blockNumber}`)}>
+              Block #{blockNumber}
+            </Link>
           </span>
           <span
             className="mr-2 mr-md-0 order-2"

@@ -5,6 +5,7 @@ import { TickingTs } from "@/shared/explorer-components/ticking-ts";
 import { useChainConfig } from "@/shared/common/use-chain-config";
 import { assetURL } from "@/shared/common/asset-url";
 import { Status } from "../../../__generated__/globalTypes";
+import Link from "next/link";
 
 type AdrTx = {
   id: string;
@@ -70,21 +71,21 @@ export const AdrTransactionItem: React.FC<Props> = ({
         {/* Content */}
         <div className="col-md-7 col-lg-8 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
           <div className="text-truncate d-flex">
-            <a
+            <Link
               className="text-truncate"
               data-test="transaction_hash_link"
               href={assetURL(`tx/${tx.hash}`)}
             >
               {tx.hash}
-            </a>
+            </Link>
             <div className="bs-label method ml-1">Transfer</div>
           </div>
           <span>
             <MaybeClickableAddress
               hash={tx.fromAddressHash}
               self={selfAddressHash}
-            />
-            →
+            />{" "}
+            →{" "}
             <MaybeClickableAddress
               hash={tx.toAddressHash}
               self={selfAddressHash}
@@ -103,7 +104,9 @@ export const AdrTransactionItem: React.FC<Props> = ({
         {/* Block info */}
         <div className="col-md-3 col-lg-2 d-flex flex-row flex-md-column flex-nowrap justify-content-center text-md-right mt-3 mt-md-0 tile-bottom">
           <span className="mr-2 mr-md-0 order-1">
-            <a href={assetURL(`block/${tx.blockNumber}`)}>Block #{tx.blockNumber}</a>
+            <Link href={assetURL(`block/${tx.blockNumber}`)}>
+              Block #{tx.blockNumber}
+            </Link>
           </span>
           <TickingTs
             className="mr-2 mr-md-0 order-2"
@@ -148,9 +151,9 @@ function MaybeClickableAddress({
   );
   if (hash !== self) {
     return (
-      <a data-test="address_hash_link" href={assetURL(`address/${hash}`)}>
+      <Link data-test="address_hash_link" href={assetURL(`address/${hash}`)}>
         {addr}
-      </a>
+      </Link>
     );
   }
 

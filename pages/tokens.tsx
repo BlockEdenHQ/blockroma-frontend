@@ -1,16 +1,14 @@
 import React from "react";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Home } from "@/shared/home";
 import { RawNav } from "@/shared/home/components/raw-nav";
-import { Footer } from "@/shared/common/footer";
+import { TokensContainer } from "@/shared/token-container/tokens-container";
 
-export default function Index() {
+export default function TokensPage() {
   return (
     <div>
       <RawNav />
-      <Home />
-      <Footer />
+      <TokensContainer />
     </div>
   );
 }

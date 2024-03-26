@@ -1,16 +1,14 @@
 import React from "react";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Home } from "@/shared/home";
 import { RawNav } from "@/shared/home/components/raw-nav";
-import { Footer } from "@/shared/common/footer";
+import { BlksTableContainer } from "@/shared/blks-table-container/blks-table-container";
 
-export default function Index() {
+export default function BlocksPage() {
   return (
     <div>
       <RawNav />
-      <Home />
-      <Footer />
+      <BlksTableContainer />
     </div>
   );
 }

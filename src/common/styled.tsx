@@ -6,16 +6,11 @@ import {
   StyletronWrapper,
 } from "styletron-react";
 import { driver, getInitialStyle, StyleObject } from "styletron-standard";
-import { Consumer } from "./theme-provider";
 import { Theme } from "./theme-types";
 
 const wrapper: StyletronWrapper = (StyledComponent) =>
   function withThemeHOC(props: PropsWithChildren<any>): JSX.Element {
-    return (
-      <Consumer>
-        {($theme) => <StyledComponent {...props} $theme={$theme} />}
-      </Consumer>
-    );
+    return <>{($theme) => <StyledComponent {...props} $theme={$theme} />}</>;
   };
 
 export interface StyledFn {

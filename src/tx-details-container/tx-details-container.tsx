@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useQueryTx } from "@/shared/tx-details-container/hooks/use-query-tx";
-import { useParams } from "react-router";
 import { TxStatus } from "@/shared/explorer-components/tx-status";
 import { normalizeTokenValue } from "@/shared/common/normalize-token-value";
 import { getGasUsedPercent } from "@/shared/common/get-gas-used-percent";
@@ -11,11 +10,14 @@ import { useChainConfig } from "@/shared/common/use-chain-config";
 
 import { assetURL } from "@/shared/common/asset-url";
 import { DataInput } from "../explorer-components/data-input";
-import {useTranslation} from "next-i18next";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export function TxDetailsContainer(): JSX.Element {
-  const {t} = useTranslation("common");
-  const params = useParams<{ txHash: string }>();
+  const { t } = useTranslation("common");
+  const router = useRouter();
+  const params = router.query;
   const chainConfig = useChainConfig();
   function divDecimals(num?: string | null): string {
     if (!num) {
@@ -234,9 +236,9 @@ export function TxDetailsContainer(): JSX.Element {
                       {t("tx.from")}
                     </dt>
                     <dd className="col-sm-9 col-lg-10">
-                      <a href={assetURL(`address/${tx?.fromAddressHash}`)}>
+                      <Link href={assetURL(`address/${tx?.fromAddressHash}`)}>
                         {tx?.fromAddressHash}
-                      </a>
+                      </Link>
 
                       <CopyToClipboard
                         reason="Copy From Address"
@@ -260,9 +262,9 @@ export function TxDetailsContainer(): JSX.Element {
                       {t("tx.to")}
                     </dt>
                     <dd className="col-sm-9 col-lg-10">
-                      <a href={assetURL(`address/${tx?.toAddressHash}`)}>
+                      <Link href={assetURL(`address/${tx?.toAddressHash}`)}>
                         {tx?.toAddressHash}
-                      </a>
+                      </Link>
 
                       <CopyToClipboard
                         reason="Copy To Address"

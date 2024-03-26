@@ -4,6 +4,7 @@ import { normalizeTokenValue } from "@/shared/common/normalize-token-value";
 import { TickingTs } from "@/shared/explorer-components/ticking-ts";
 import { useChainConfig } from "@/shared/common/use-chain-config";
 import { assetURL } from "@/shared/common/asset-url";
+import Link from "next/link";
 
 export type Tx = {
   id: string;
@@ -65,18 +66,18 @@ export const TxTransactionItem: React.FC<Props> = ({ tx }) => {
         <div className="col-md-7 col-lg-8 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
           <span>
             <div className="text-truncate d-flex">
-              <a
+              <Link
                 className="text-truncate"
                 data-test="transaction_hash_link"
                 href={assetURL(`tx/${tx.hash}`)}
               >
                 {tx.hash}
-              </a>
+              </Link>
               <div className="bs-label method ml-1">Transfer</div>
             </div>
           </span>
           <span>
-            <a
+            <Link
               data-test="address_hash_link"
               href={assetURL(`address/${tx.fromAddressHash}`)}
             >
@@ -88,9 +89,9 @@ export const TxTransactionItem: React.FC<Props> = ({ tx }) => {
                   {shortenHash(tx.fromAddressHash)}
                 </span>
               </span>
-            </a>
-            →
-            <a
+            </Link>{" "}
+            →{" "}
+            <Link
               data-test="address_hash_link"
               href={assetURL(`address/${tx.toAddressHash}`)}
             >
@@ -102,7 +103,7 @@ export const TxTransactionItem: React.FC<Props> = ({ tx }) => {
                   {shortenHash(tx.toAddressHash)}
                 </span>
               </span>
-            </a>
+            </Link>
           </span>
           <span className="d-flex flex-md-row flex-column mt-3 mt-md-0">
             <span className="tile-title">
@@ -117,9 +118,9 @@ export const TxTransactionItem: React.FC<Props> = ({ tx }) => {
         {/* Block info */}
         <div className="col-md-3 col-lg-2 d-flex flex-row flex-md-column flex-nowrap justify-content-center text-md-right mt-3 mt-md-0 tile-bottom">
           <span className="mr-2 mr-md-0 order-1">
-            <a href={assetURL(`block/${tx.blockNumber}`)}>
+            <Link href={assetURL(`block/${tx.blockNumber}`)}>
               Block #{tx.blockNumber}
-            </a>
+            </Link>
           </span>
           <TickingTs
             className="mr-2 mr-md-0 order-2"

@@ -32,7 +32,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html className="dark-theme-applied">
         <Head>
           <meta name="twitter:site" content={beConfig.twitter} />
           <meta name="twitter:image" content={beConfig.previewImageUrl} />

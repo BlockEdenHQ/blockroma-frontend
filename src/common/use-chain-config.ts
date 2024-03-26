@@ -12,9 +12,9 @@ export type ChainConfig = {
 export function useChainConfig(): ChainConfig {
   return {
     chainId: 7778,
-    chainName: "BoomMo Chain",
-    symbol: "BMO",
-    rpcUrls: ["https://api-testnet.boommo.com"],
+    chainName: "Blockroma",
+    symbol: "BLO",
+    rpcUrls: ["https://example.com"],
     decimals: 18,
     networkPath: "",
   };

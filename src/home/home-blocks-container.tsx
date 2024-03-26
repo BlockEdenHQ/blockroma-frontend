@@ -1,14 +1,15 @@
-import React  from "react";
-import {useQueryBlocks} from "@/shared/blks-table-container/hooks/use-query-blocks";
-import {BlkTile} from "@/shared/home/components/blk-tile";
-import {assetURL} from "@/shared/common/asset-url";
-import {useTranslation} from "next-i18next";
+import React from "react";
+import { useQueryBlocks } from "@/shared/blks-table-container/hooks/use-query-blocks";
+import { BlkTile } from "@/shared/home/components/blk-tile";
+import { assetURL } from "@/shared/common/asset-url";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export const HomeBlocksContainer: React.FC = () => {
   const { t } = useTranslation("common");
-  const {data, loading, error, refetch} = useQueryBlocks(
-    {first: 4, after: 0},
-    {pollInterval: 5000}
+  const { data, loading, error, refetch } = useQueryBlocks(
+    { first: 4, after: 0 },
+    { pollInterval: 5000 }
   );
 
   if (loading) {
@@ -21,9 +22,9 @@ export const HomeBlocksContainer: React.FC = () => {
   return (
     <div className="card card-chain-blocks js-ad-dependant-mb-3 mb-3">
       <div className="card-body">
-        <a className="btn-line float-right" href={assetURL("blocks")}>
+        <Link className="btn-line float-right" href={assetURL("blocks")}>
           View All Blocks
-        </a>
+        </Link>
         <h2 className="card-title">{t("nav.blocks")}</h2>
 
         {error && (
@@ -42,7 +43,7 @@ export const HomeBlocksContainer: React.FC = () => {
           data-url="/chain-blocks"
         >
           {!!blks?.length &&
-            blks.map((blk) => <BlkTile key={blk?.hash} blk={blk}/>)}
+            blks.map((blk) => <BlkTile key={blk?.hash} blk={blk} />)}
         </div>
       </div>
     </div>

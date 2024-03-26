@@ -2,8 +2,9 @@ import * as React from "react";
 import { useGetTxs } from "@/shared/block-details-container/hooks/use-get-txs";
 import { TxTransactionItem } from "@/shared/explorer-components/tx-transaction-item";
 
-import {assetURL} from "@/shared/common/asset-url";
-import {useTranslation} from "next-i18next";
+import { assetURL } from "@/shared/common/asset-url";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 //         TODO(dora): more tx coming in
 // @ts-ignore
@@ -24,7 +25,7 @@ function MoreTxComingIn(): JSX.Element {
 }
 
 export function HomeTransactionsContainer(): JSX.Element {
-  const {t} = useTranslation("common");
+  const { t } = useTranslation("common");
   const { data, refetch, loading, error } = useGetTxs(
     { first: 20, after: 0 },
     { pollInterval: 5000 }
@@ -40,9 +41,9 @@ export function HomeTransactionsContainer(): JSX.Element {
   return (
     <div className="card card-chain-transactions">
       <div className="card-body">
-        <a className="btn-line float-right" href={assetURL("txs")}>
+        <Link className="btn-line float-right" href={assetURL("txs")}>
           View All Transactions
-        </a>
+        </Link>
         <h2 className="card-title lg-card-title"> {t("nav.txs")}</h2>
         {/*
         TODO(dora): more tx coming in

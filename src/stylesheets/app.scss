@@ -10,10 +10,10 @@
 
 // Font Awesome
 $fa-font-path: $route-prefix + "/webfonts";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
 
 // Bootstrap Core CSS
 @import "../../node_modules/bootstrap/scss/functions";
@@ -54,7 +54,7 @@ $fa-font-path: $route-prefix + "/webfonts";
 @import "../../node_modules/bootstrap/scss/transitions";
 
 // Code highlight
-@import "../../../node_modules/highlight.js/styles/default";
+@import "../../node_modules/highlight.js/styles/default";
 
 //Custom theme
 @import "theme/fonts";
@@ -132,4 +132,4 @@ $fa-font-path: $route-prefix + "/webfonts";
 
 @import "theme/custom_contracts/dark-forest-theme";
 @import "theme/custom_contracts/circles-theme";
-
+@import "../../node_modules/bootstrap/scss/modal";

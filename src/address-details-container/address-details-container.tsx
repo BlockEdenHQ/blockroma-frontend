@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useParams } from "react-router";
 import { normalizeTokenValue } from "@/shared/common/normalize-token-value";
 import { AddressTransactionsContainer } from "@/shared/address-details-container/address-transactions-container";
 import { useChainConfig } from "@/shared/common/use-chain-config";
@@ -7,7 +6,8 @@ import { assetURL } from "@/shared/common/asset-url";
 import { useGetAddr } from "./hooks/use-get-addr";
 import { QrModal } from "./components/qr-modal";
 import { CopyAddress } from "../explorer-components/copy-address";
-import {useTranslation} from "next-i18next";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 export interface Addr {
   fetchedCoinBalance?: string | null;
@@ -20,11 +20,12 @@ export interface Addr {
 }
 
 export const AddressDetailsContainer: React.FC = () => {
-  const {t} = useTranslation("common");
+  const { t } = useTranslation("common");
   const chainConfig = useChainConfig();
-  const params = useParams<{ addressHash: string }>();
+  const router = useRouter();
+  const params = router.query;
   const { addressHash: rawAddressHash } = params;
-  const addressHash = rawAddressHash.toLowerCase();
+  const addressHash = String(rawAddressHash).toLowerCase();
   const [qrModalOpen, setQrModalOpen] = useState(false);
 
   const { data, loading, error, refetch } = useGetAddr({
